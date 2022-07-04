@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { RecoilRoot } from 'recoil';
+import CompletedList from "./CompletedList";
+import InProgressList from "./InProgressList";
+import NewActionInput from './NewActionInput';
+import NewList from "./NewList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <RecoilRoot>
+                <div className='App'>
+                    <header className='App-header'>
+                        <h1>To-do List</h1>
+                    </header>
+                    <NewActionInput />
+                    <div className='content'>
+                        <NewList />
+                        <InProgressList />
+                        <CompletedList />
+                    </div>
+                </div>
+            </RecoilRoot>
+        </>
+
+    );
 }
 
 export default App;
